@@ -21,22 +21,16 @@ header {
   color: rgb(255, 0, 171);
 }
 
-.search-box {
+#search-box {
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   display: flex;
   align-items: center;
   height: 2.5rem;
-}
-
-.search-box p {
   color: rgb(191, 191, 191);
-  width: 100%;
-  font-size: 1rem;
-  margin: 0 0;
 }
 
-.search-button {
+#search-button {
   background-color: rgb(205,102, 204);
   border-radius: 1rem;
   margin-left: 1rem;
@@ -46,7 +40,7 @@ header {
   height: 2.5rem;
 }
 
-.search-button .fa {
+#search-button .fa {
   color: rgb(0,0,0);
 
 }
