@@ -21,13 +21,17 @@ header {
   color: rgb(255, 0, 171);
 }
 
+input {
+  color: rgb(191, 191, 191);
+}
+
 #search-box {
   background-color: rgb(255, 255, 255);
   border-radius: 1rem;
   display: flex;
   align-items: center;
   height: 2.5rem;
-  color: rgb(191, 191, 191);
+  color: rgb(74, 74, 74);
 }
 
 #search-button {

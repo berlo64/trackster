@@ -10,7 +10,8 @@ var Trackster = $('#search-button').click(function() {
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-
+  console.log(Trackster.searchTracksByTitle());
+  console.log('5');
 };
 
 /*
@@ -21,7 +22,7 @@ Trackster.searchTracksByTitle = function(title) {
   $.ajax({
     url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + title + '&api_key=' + API_KEY + '&format=json',
     success: function(results) {
-      console.log(results);
+      return results.results.trackmatches.track;
     }
   });
 };
