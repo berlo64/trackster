@@ -58,9 +58,9 @@ header {
   margin-bottom: 0.25rem;
 }
 
-/* SONGS INFORMATIONS */
+/* SONGS DATA */
 
-.row.info-song {
+.row.song-data {
   border-bottom: 1px solid rgb(204, 204, 204);
 }
 
@@ -74,7 +74,7 @@ header {
   color: rgb(205,102, 204);
 }
 
-.row.info-song .item {
+.row.song-data .data {
   color: rgb(74, 74, 74);
   font-family: 'Work Sans', sans-serif;
   font-size: 1rem;
