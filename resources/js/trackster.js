@@ -4,6 +4,7 @@ $(document).ready(function() {
 
   $('#search-button').click(function() {
     Trackster.searchTracksByTitle($('#search-box').val());
+    $('#search-box').val('');
   });
 
 
@@ -17,8 +18,6 @@ var Trackster = {}
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-  var songUrl = ;
-  var imageLink = ;  
   for (var i = 0; i <= tracks.length; i++) {
     var htmlRowTrack = '<div class="row song-data">' +
       '<div class="play-button col-md-1 offset-md-1">' +
