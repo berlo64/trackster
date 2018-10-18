@@ -68,13 +68,13 @@ input {
   border-bottom: 1px solid rgb(204, 204, 204);
 }
 
-#play-button {
+.play-button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#play-button .fa {
+.play-button .fa {
   color: rgb(205,102, 204);
 }
 

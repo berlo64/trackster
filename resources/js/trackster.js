@@ -1,17 +1,46 @@
 $(document).ready(function() {
 
+
+
+  $('#search-button').click(function() {
+    Trackster.searchTracksByTitle($('#search-box').val());
+  });
+
+
+
 const API_KEY = '10cfca331864a8701bf08a33d7a722cb';
 
-var Trackster = $('#search-button').click(function() {
-  Trackster.searchTracksByTitle($('#search-box').val());
-});
+var Trackster = {}
+
 /*
   Given an array of track data, create the HTML for a Bootstrap row for each.
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-  console.log(Trackster.searchTracksByTitle());
-  console.log('5');
+  var songUrl = ;
+  var imageLink = ;  
+  for (var i = 0; i <= tracks.length; i++) {
+    var htmlRowTrack = '<div class="row song-data">' +
+      '<div class="play-button col-md-1 offset-md-1">' +
+        '<a href=' + + ' target="_blank">' +
+          '<i class="fa fa-play-circle-o fa-lg"></i>' +
+        '</a>' +
+      '</div>' +
+      '<div class="data song-name col-md-2">' +
+        '<span>' + tracks[i].name + '</span>' +
+      '</div>' +
+      '<div class="data artist-name col-md-2 offset-md-1">' +
+        '<span>' + tracks[i].artist + '</span>' +
+      '</div>' +
+      '<div class="data album-name col-md-1 offset-md-1">' +
+        '<span>' + 'tracks[i].image' + '</span>' +
+      '</div>' +
+      '<div class="data listeners-num col-md-1 offset-md-1">' +
+        '<span>' + tracks[i].listeners + '</span>' +
+      '</div>' +
+    '</div>';
+    $('#song-info').append(htmlRowTrack);
+  }
 };
 
 /*
@@ -22,7 +51,8 @@ Trackster.searchTracksByTitle = function(title) {
   $.ajax({
     url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + title + '&api_key=' + API_KEY + '&format=json',
     success: function(results) {
-      return results.results.trackmatches.track;
+      Trackster.renderTracks(results.results.trackmatches.track);
+      console.log(results.results.trackmatches.track);
     }
   });
 };
