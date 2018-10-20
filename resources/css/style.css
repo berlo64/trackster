@@ -66,12 +66,12 @@ input {
 
 .row.song-data {
   border-bottom: 1px solid rgb(204, 204, 204);
+  align-items: center;
 }
 
 .play-button {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .play-button .fa {

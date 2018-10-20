@@ -1,13 +1,10 @@
 $(document).ready(function() {
 
-
-
   $('#search-button').click(function() {
+    $('.row.song-data').empty();
     Trackster.searchTracksByTitle($('#search-box').val());
     $('#search-box').val('');
   });
-
-
 
 const API_KEY = '10cfca331864a8701bf08a33d7a722cb';
 
@@ -18,7 +15,8 @@ var Trackster = {}
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-  for (var i = 0; i <= tracks.length; i++) {
+  for (var i = 0; i < tracks.length; i++) {
+    var mediumAlbumArt = tracks[i].image[1]["#text"];
     var htmlRowTrack = '<div class="row song-data">' +
       '<div class="play-button col-md-1 offset-md-1">' +
         '<a href=' + + ' target="_blank">' +
@@ -32,7 +30,9 @@ Trackster.renderTracks = function(tracks) {
         '<span>' + tracks[i].artist + '</span>' +
       '</div>' +
       '<div class="data album-name col-md-1 offset-md-1">' +
-        '<span>' + 'tracks[i].image' + '</span>' +
+        '<div>' +
+          '<img src="' + mediumAlbumArt + '" alt="Album Cover">' +
+        '</div>' +
       '</div>' +
       '<div class="data listeners-num col-md-1 offset-md-1">' +
         '<span>' + tracks[i].listeners + '</span>' +
