@@ -1,10 +1,16 @@
 $(document).ready(function() {
 
-  $('#search-button').click(function() {
-    $('.row.song-data').empty();
-    Trackster.searchTracksByTitle($('#search-box').val());
-    $('#search-box').val('');
-  });
+$("#search-box").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#search-button").click();
+    }
+});
+
+$('#search-button').click(function() {
+  $('#song-info').empty();
+  Trackster.searchTracksByTitle($('#search-box').val());
+  $('#search-box').val('');
+});
 
 const API_KEY = '10cfca331864a8701bf08a33d7a722cb';
 
@@ -19,7 +25,7 @@ Trackster.renderTracks = function(tracks) {
     var mediumAlbumArt = tracks[i].image[1]["#text"];
     var htmlRowTrack = '<div class="row song-data">' +
       '<div class="play-button col-md-1 offset-md-1">' +
-        '<a href=' + + ' target="_blank">' +
+        '<a href="' + tracks[i].url + '" target="_blank">' +
           '<i class="fa fa-play-circle-o fa-lg"></i>' +
         '</a>' +
       '</div>' +
