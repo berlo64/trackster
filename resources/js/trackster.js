@@ -23,6 +23,7 @@ var Trackster = {}
 Trackster.renderTracks = function(tracks) {
   for (var i = 0; i < tracks.length; i++) {
     var mediumAlbumArt = tracks[i].image[1]["#text"];
+    var numForm = numeral(tracks[i].listeners);
     var htmlRowTrack = '<div class="row song-data">' +
       '<div class="play-button col-md-1 offset-md-1">' +
         '<a href="' + tracks[i].url + '" target="_blank">' +
@@ -41,7 +42,7 @@ Trackster.renderTracks = function(tracks) {
         '</div>' +
       '</div>' +
       '<div class="data listeners-num col-md-1 offset-md-1">' +
-        '<span>' + tracks[i].listeners + '</span>' +
+        '<span>' + numForm.format('0.0a') + '</span>' +
       '</div>' +
     '</div>';
     $('#song-info').append(htmlRowTrack);
@@ -57,7 +58,6 @@ Trackster.searchTracksByTitle = function(title) {
     url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + title + '&api_key=' + API_KEY + '&format=json',
     success: function(results) {
       Trackster.renderTracks(results.results.trackmatches.track);
-      console.log(results.results.trackmatches.track);
     }
   });
 };
